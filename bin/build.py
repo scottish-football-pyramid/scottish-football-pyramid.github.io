@@ -6,7 +6,7 @@ import markdown
 
 BIN_DIR = os.path.realpath(os.path.dirname(__file__))
 SOURCE_DIR = os.path.join(BIN_DIR, '..', 'source')
-TARGET_DIR = os.path.join(BIN_DIR, '..', 'docs')
+TARGET_FILE = os.path.join(BIN_DIR, '..', 'index.html')
 
 DOCUMENT_TEMPLATE = '''
 <!DOCTYPE html>
@@ -49,8 +49,7 @@ body {
 
 def main():
     document = DOCUMENT_TEMPLATE % build_body()
-    target_filepath = os.path.join(TARGET_DIR, 'index.html')
-    with open(target_filepath, 'w') as file_out:
+    with open(TARGET_FILE, 'w') as file_out:
         file_out.write(document)
 
 def build_body():
